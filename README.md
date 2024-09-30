@@ -1,36 +1,46 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
 ## Getting Started
 
-First, run the development server:
+1.First for Initialize a Next.js project
+Use the Following command
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+npx create-next-app@latest my-fullstack-app --typescript
+cd my-fullstack-app
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2.Install Tailwind CSS
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+and Configure in tailwind.config.js file
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3.Create the Dockerfile for Containerization
 
-## Learn More
+docker build -t my-fullstack-app .
+docker run -p 3000:3000 my-fullstack-app
+Frontend is now running on http://localhost:3000.
 
-To learn more about Next.js, take a look at the following resources:
+4.Set up Google Cloud Functions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+gcloud init
+gcloud config set project [PROJECT_ID]
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+5.Deploy the Cloud Function:
 
-## Deploy on Vercel
+firebase deploy --only functions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+6.Start Docker container
+ 
+docker run -p 3000:3000 my-fullstack-app
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+7. Setup the Google Cloud your project
+
+gcloud projects list
+gcloud config set project your-project-id
+
+8.Finally Build Succesfully.
+
+Open [http://localhost:3000] with your browser to see the result.
+
+
+
+"# my-fullstack-app1" 
