@@ -8,9 +8,9 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest  # or windows-latest for a Windows runner
+    runs-on: windows-latest  
 
     steps:
     - uses: actions/checkout@v4
     - name: Build the Docker image
-      run: docker build . --file Dockerfile --tag my-fullstack-app:latest  # Custom image name and tag
+      run: docker build . --file Dockerfile --tag my-fullstack-app:latest  
